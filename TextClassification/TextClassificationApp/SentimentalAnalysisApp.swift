@@ -1,6 +1,6 @@
 //
 //  SentimentalAnalysisApp.swift
-//  SentimentalAnalysis
+//  TextClassificationApp
 //
 //  Created by Harish Kumar on 26/03/26.
 //

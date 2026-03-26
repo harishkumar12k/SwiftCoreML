@@ -1,6 +1,6 @@
 //
 //  AnalysisDetailView.swift
-//  SentimentalAnalysis
+//  TextClassificationApp
 //
 //  Created by Harish Kumar on 26/03/26.
 //
@@ -9,8 +9,9 @@ import SwiftUI
 
 struct AnalysisDetailView: View {
     let toolName: String
+    var model: AITool
     @State private var userInput: String = ""
-    @State private var sentimentResult: String = "Enter text to analyze"
+    @State private var result: String = "Enter text to analyze"
 
     var body: some View {
         VStack(spacing: 25) {
@@ -23,8 +24,8 @@ struct AnalysisDetailView: View {
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.2)))
                 .padding()
 
-            Button("Analyze Sentiment") {
-                sentimentResult = analyzeSentiment(text: userInput)
+            Button("Analyze") {
+                result = analyzeText(text: userInput, model: model)
             }
             .padding(.horizontal)
             .buttonStyle(.borderedProminent)
@@ -33,9 +34,9 @@ struct AnalysisDetailView: View {
                 Text("Result:")
                     .font(.caption)
                     .foregroundColor(.secondary)
-                Text(sentimentResult)
+                Text(result)
                     .font(.title.bold())
-                    .foregroundColor(sentimentResult == "Positive" ? .green : .black)
+                    .foregroundColor(result == "Positive" ? .green : .black)
             }
             
             Spacer()

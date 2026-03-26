@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		02F76C4D2F7567B80099EEC2 /* SentimentalAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentimentalAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F76C4D2F7567B80099EEC2 /* TextClassificationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextClassificationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		02F76C4F2F7567B80099EEC2 /* SentimentalAnalysis */ = {
+		02F76C4F2F7567B80099EEC2 /* TextClassificationApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SentimentalAnalysis;
+			path = TextClassificationApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		02F76C442F7567B80099EEC2 = {
 			isa = PBXGroup;
 			children = (
-				02F76C4F2F7567B80099EEC2 /* SentimentalAnalysis */,
+				02F76C4F2F7567B80099EEC2 /* TextClassificationApp */,
 				02F76C4E2F7567B80099EEC2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		02F76C4E2F7567B80099EEC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				02F76C4D2F7567B80099EEC2 /* SentimentalAnalysis.app */,
+				02F76C4D2F7567B80099EEC2 /* TextClassificationApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		02F76C4C2F7567B80099EEC2 /* SentimentalAnalysis */ = {
+		02F76C4C2F7567B80099EEC2 /* TextClassificationApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02F76C582F7567BB0099EEC2 /* Build configuration list for PBXNativeTarget "SentimentalAnalysis" */;
+			buildConfigurationList = 02F76C582F7567BB0099EEC2 /* Build configuration list for PBXNativeTarget "TextClassificationApp" */;
 			buildPhases = (
 				02F76C492F7567B80099EEC2 /* Sources */,
 				02F76C4A2F7567B80099EEC2 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				02F76C4F2F7567B80099EEC2 /* SentimentalAnalysis */,
+				02F76C4F2F7567B80099EEC2 /* TextClassificationApp */,
 			);
-			name = SentimentalAnalysis;
+			name = TextClassificationApp;
 			packageProductDependencies = (
 			);
 			productName = SentimentalAnalysis;
-			productReference = 02F76C4D2F7567B80099EEC2 /* SentimentalAnalysis.app */;
+			productReference = 02F76C4D2F7567B80099EEC2 /* TextClassificationApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 02F76C482F7567B80099EEC2 /* Build configuration list for PBXProject "SentimentalAnalysis" */;
+			buildConfigurationList = 02F76C482F7567B80099EEC2 /* Build configuration list for PBXProject "TextClassificationApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				02F76C4C2F7567B80099EEC2 /* SentimentalAnalysis */,
+				02F76C4C2F7567B80099EEC2 /* TextClassificationApp */,
 			);
 		};
 /* End PBXProject section */
@@ -259,8 +259,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,8 +286,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +303,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02F76C482F7567B80099EEC2 /* Build configuration list for PBXProject "SentimentalAnalysis" */ = {
+		02F76C482F7567B80099EEC2 /* Build configuration list for PBXProject "TextClassificationApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02F76C562F7567BB0099EEC2 /* Debug */,
@@ -314,7 +312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02F76C582F7567BB0099EEC2 /* Build configuration list for PBXNativeTarget "SentimentalAnalysis" */ = {
+		02F76C582F7567BB0099EEC2 /* Build configuration list for PBXNativeTarget "TextClassificationApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02F76C592F7567BB0099EEC2 /* Debug */,
