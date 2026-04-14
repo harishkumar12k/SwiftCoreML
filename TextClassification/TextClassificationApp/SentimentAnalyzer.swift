@@ -29,6 +29,51 @@ func analyzeText(text: String, model: AITool) -> String {
             return "Prediction failed"
         }
         return prediction.label
+    case .spamHamClassifierMaxEntropy:
+        // AI generated datasets
+        guard let model = try? SpamHamClassifierMaxEntropy(configuration: MLModelConfiguration()) else {
+            return "Model loading failed"
+        }
+        guard let prediction = try? model.prediction(text: text) else {
+            return "Prediction failed"
+        }
+        return prediction.label
+    case .spamHamClassifierCondRanField:
+        // AI generated datasets
+        guard let model = try? SpamHamClassifierCondRanField(configuration: MLModelConfiguration()) else {
+            return "Model loading failed"
+        }
+        guard let prediction = try? model.prediction(text: text) else {
+            return "Prediction failed"
+        }
+        return prediction.label
+    case .spamHamClassifierTLStaticEmbedding:
+        // AI generated datasets
+        guard let model = try? SpamHamClassifierTLStaticEmbedding(configuration: MLModelConfiguration()) else {
+            return "Model loading failed"
+        }
+        guard let prediction = try? model.prediction(text: text) else {
+            return "Prediction failed"
+        }
+        return prediction.label
+    case .spamHamClassifierELMoEmbedding:
+        // AI generated datasets
+        guard let model = try? SpamHamClassifierELMoEmbedding(configuration: MLModelConfiguration()) else {
+            return "Model loading failed"
+        }
+        guard let prediction = try? model.prediction(text: text) else {
+            return "Prediction failed"
+        }
+        return prediction.label
+    case .spamHamClassifierBERTEmbedding:
+        // AI generated datasets
+        guard let model = try? SpamHamClassifierBERTEmbedding(configuration: MLModelConfiguration()) else {
+            return "Model loading failed"
+        }
+        guard let prediction = try? model.prediction(text: text) else {
+            return "Prediction failed"
+        }
+        return prediction.label
     }
     
 }

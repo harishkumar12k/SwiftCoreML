@@ -9,7 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
 
-    let tools: [AITool] = [.twitterSentiment, .emotionalDetection]
+    let tools: [AITool] = [
+        .twitterSentiment,
+        .emotionalDetection,
+        .spamHamClassifierMaxEntropy,
+        .spamHamClassifierCondRanField,
+        .spamHamClassifierTLStaticEmbedding,
+        .spamHamClassifierELMoEmbedding,
+        .spamHamClassifierBERTEmbedding
+    ]
     
     var body: some View {
         NavigationStack {
@@ -32,12 +40,22 @@ struct HomeView: View {
 enum AITool: String, CaseIterable {
     case twitterSentiment = "TwitterSentimentalAnalysis"
     case emotionalDetection = "EmotionalDetection"
+    case spamHamClassifierMaxEntropy = "SpamHamClassifierMaxEntropy"
+    case spamHamClassifierCondRanField = "SpamHamClassifierCondRanField"
+    case spamHamClassifierTLStaticEmbedding = "SpamHamClassifierTLStaticEmbedding"
+    case spamHamClassifierELMoEmbedding = "SpamHamClassifierELMoEmbedding"
+    case spamHamClassifierBERTEmbedding = "SpamHamClassifierBERTEmbedding"
     
     // Helper to return the correct model name for each tool
     var modelName: String {
         switch self {
         case .twitterSentiment: return "TwitterSentimental"
         case .emotionalDetection: return "EmotionalClassifier"
+        case .spamHamClassifierMaxEntropy: return "SpamHamClassifierMaxEntropy"
+        case .spamHamClassifierCondRanField: return "SpamHamClassifierCondRanField"
+        case .spamHamClassifierTLStaticEmbedding: return "SpamHamClassifierTLStaticEmbedding"
+        case .spamHamClassifierELMoEmbedding: return "SpamHamClassifierELMoEmbedding"
+        case .spamHamClassifierBERTEmbedding: return "SpamHamClassifierBERTEmbedding"
         }
     }
 }
