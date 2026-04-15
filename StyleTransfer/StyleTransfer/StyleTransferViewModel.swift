@@ -17,6 +17,8 @@ class StyleTransferViewModel: ObservableObject {
         switch model {
         case .imageSTSoftner:
             self.softner(inputImage: inputImage)
+        case .liveSTSoftner:
+            self.softner(inputImage: inputImage)
         }
     }
     
