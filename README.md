@@ -13,3 +13,7 @@ Sentimental Analysis sample
 **Image Style Transfer(Softner)**
 
 ![Alt Text](Assets/ImageSoftnerStyleTransfer.gif)
+
+**Sound Classifier(Cat, Dog and Noise)**
+
+![Alt Text](Assets/SoundClassifierCatDogNoise.gif)
