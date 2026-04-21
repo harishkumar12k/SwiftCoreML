@@ -11,7 +11,8 @@ struct HomeView: View {
 
     let tools: [AITool] = [
         .imageSTSoftner,
-        .liveSTSoftner
+        .liveSTSoftner,
+        .imageSTSharpner
     ]
     
     var body: some View {
@@ -42,12 +43,14 @@ struct HomeView: View {
 
 enum AITool: String, CaseIterable {
     case imageSTSoftner = "Image Softner"
+    case imageSTSharpner = "Image Sharpner"
     case liveSTSoftner = "Live Video Softner"
     // Helper to return the correct model name for each tool
     var modelName: String {
         switch self {
         case .imageSTSoftner: return "FaceStyleTransfer_I300_SS1_SD512_Softner"
         case .liveSTSoftner: return "FaceStyleTransfer_I300_SS1_SD512_VideoSoftner"
+        case .imageSTSharpner: return "SharpeningStyleTransfer_I1000_SS5_SD256"
         }
     }
 }

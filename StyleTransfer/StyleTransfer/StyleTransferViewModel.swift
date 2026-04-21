@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CoreML
+import CoreImage
+import Vision
 
 class StyleTransferViewModel: ObservableObject {
     @Published var stylizedImage: UIImage?
@@ -19,6 +21,8 @@ class StyleTransferViewModel: ObservableObject {
             self.softner(inputImage: inputImage)
         case .liveSTSoftner:
             self.softner(inputImage: inputImage)
+        case .imageSTSharpner:
+            self.sharpner(inputImage: inputImage)
         }
     }
     
@@ -57,6 +61,60 @@ class StyleTransferViewModel: ObservableObject {
             }
         }
     }
+    
+    func sharpner(inputImage: UIImage) {
+        // 0. Keep a reference to the original CIImage and its orientation
+        guard let originalCI = CIImage(image: inputImage) else { return }
+        let originalOrientation = inputImage.imageOrientation
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let config = MLModelConfiguration()
+            guard let model = try? FaceStyleTransfer_I300_SS1_SD512_Softner(configuration: config) else { return }
+            
+            // 1. ISOLATE LUMINANCE: Convert to Grayscale BEFORE sending to ML
+            // This prevents the model from ever seeing (or changing) the colors.
+            let monoCI = originalCI.applyingFilter("CIPhotoEffectMono")
+            
+            // Convert the grayscale CIImage to UIImage for existing toPixelBuffer helper
+            let context = CIContext() // Ideally, use a persistent context property
+            guard let monoCG = context.createCGImage(monoCI, from: monoCI.extent) else { return }
+            let monoUIImage = UIImage(cgImage: monoCG)
+
+            // 2. Predict on the Mono image
+            guard let pixelBuffer = monoUIImage.toPixelBuffer(width: 512, height: 512) else { return }
+            
+            do {
+                let output = try model.prediction(image: pixelBuffer)
+                
+                // 3. THE RECOVERY: Merge Sharpened Luma back with Original Color
+                let sharpenedLuma = CIImage(cvPixelBuffer: output.stylizedImage)
+                
+                // Resize sharpenedLuma back to original size to match originalCI
+                let scaleX = originalCI.extent.width / sharpenedLuma.extent.width
+                let scaleY = originalCI.extent.height / sharpenedLuma.extent.height
+                let resizedLuma = sharpenedLuma.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+                
+                // BLEND: Take sharpness from 'resizedLuma' and colors from 'originalCI'
+                let finalCI = resizedLuma.applyingFilter("CILuminosityBlendMode", parameters: [
+                    kCIInputBackgroundImageKey: originalCI
+                ])
+                
+                // 4. Render and preserve orientation
+                if let finalCG = context.createCGImage(finalCI, from: originalCI.extent) {
+                    let result = UIImage(cgImage: finalCG, scale: inputImage.scale, orientation: originalOrientation)
+                    
+                    DispatchQueue.main.async {
+                        self.stylizedImage = result
+                        self.isProcessing = false
+                    }
+                }
+            } catch {
+                print("ML Error: \(error)")
+                DispatchQueue.main.async { self.isProcessing = false }
+            }
+        }
+    }
+    
 }
 
 extension UIImage {
