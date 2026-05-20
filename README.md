@@ -17,3 +17,7 @@ Sentimental Analysis sample
 **Sound Classifier(Cat, Dog and Noise)**
 
 ![Alt Text](Assets/SoundClassifierCatDogNoise.gif)
+
+**Hand Pose Classifier(ThumbsUp and OpenPalm)**
+
+![Alt Text](Assets/ThumbsUpAndOpenPalmClassifier.gif)
