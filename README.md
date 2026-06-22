@@ -1,5 +1,7 @@
 This project is for example of CoreML model.
 
+Have a question about his Repo, ask in DeepWiki [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/harishkumar12k/SwiftCoreML)
+
 Sentimental Analysis sample
 
 **Text Classification**
